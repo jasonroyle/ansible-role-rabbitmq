@@ -1,0 +1,9 @@
+---
+rabbitmq_enabled: True
+
+rabbitmq_version: 3.6.6-1
+
+rabbitmq_plugin_dir: "/usr/lib/rabbitmq/lib/rabbitmq_server-{{ rabbitmq_version.split('-')[0] }}/plugins"
+
+rabbitmq_plugins:
+- rabbitmq_management
