@@ -1,0 +1,20 @@
+---
+- name: Install RabbitMQ plugins
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ rabbitmq_plugin_dir }}"
+  with_items: "{{ rabbitmq_plugins }}"
+  when: item.url is defined
+
+- name: Disable RabbitMQ plugins
+  rabbitmq_plugin:
+    names: "{{ item.name }}"
+    state: disabled
+  with_items: "{{ rabbitmq_plugins }}"
+  when: item.disabled is defined and item.disabled
+
+- name: Enable RabbitMQ plugins
+  rabbitmq_plugin:
+    names: "{{ item.name | default(item) }}"
+  with_items: "{{ rabbitmq_plugins }}"
+  when: item.disabled is undefined or not item.disabled
