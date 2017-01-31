@@ -14,7 +14,7 @@ Set `rabbitmq_plugins` to define an array of plugins. Plugins will be enabled by
 
 ```yaml
 rabbitmq_plugins:
-  - rabbitmq_management
+- rabbitmq_management
 ```
 
 ### Disable Plugins
@@ -23,8 +23,8 @@ Set `disabled` to disable plugins.
 
 ```yaml
 rabbitmq_plugins:
-  - name: rabbitmq_management
-    disabled: True
+- name: rabbitmq_management
+  disabled: True
 ```
 
 ### Install Plugins
@@ -33,8 +33,8 @@ Set `url` to install plugins.
 
 ```yaml
 rabbitmq_plugins:
-  - name: rabbitmq_delayed_message_exchange
-    url: http://www.rabbitmq.com/community-plugins/v3.6.x/rabbitmq_delayed_message_exchange-0.0.1.ez
+- name: rabbitmq_delayed_message_exchange
+  url: http://www.rabbitmq.com/community-plugins/v3.6.x/rabbitmq_delayed_message_exchange-0.0.1.ez
 ```
 
 ## License
