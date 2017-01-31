@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: jasonroyle
+  description: RabbitMQ
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+  - name: EL
+    versions:
+    - 5
+    - 6
+    - 7
+  galaxy_tags:
+  - rabbitmq
+  - amqp
+  - plugin
+
+dependencies: []
