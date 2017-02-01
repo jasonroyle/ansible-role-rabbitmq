@@ -8,13 +8,11 @@
 
 - name: Disable RabbitMQ plugins
   rabbitmq_plugin:
-    names: "{{ item.name }}"
+    names: "{{ item }}"
     state: disabled
-  with_items: "{{ rabbitmq_plugins }}"
-  when: item.disabled is defined and item.disabled
+  with_items: "{{ rabbitmq_plugins_disabled }}"
 
 - name: Enable RabbitMQ plugins
   rabbitmq_plugin:
     names: "{{ item.name | default(item) }}"
   with_items: "{{ rabbitmq_plugins }}"
-  when: item.disabled is undefined or not item.disabled
