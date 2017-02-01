@@ -2,4 +2,10 @@
 - name: Include RabbitMQ installation tasks
   include: "{{ ansible_os_family }}/install.yml"
 
+- name: Start RabbitMQ server
+  service:
+    name: rabbitmq-server
+    enabled: True
+    state: started
+
 - include: plugins.yml
