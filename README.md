@@ -23,7 +23,7 @@ rabbitmq_users:
   tags: administrator
 ```
 
-### Remove users
+### Remove Users
 
 Set `rabbitmq_users_absent` to define an array of absent users.
 
