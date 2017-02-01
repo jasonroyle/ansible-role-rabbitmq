@@ -8,6 +8,30 @@ Set `rabbitmq_version` to define the version of RabbitMQ to install.
 rabbitmq_version: 3.6.6-1
 ```
 
+## Users
+
+Set `rabbitmq_users` to define an array of present users.
+
+```yaml
+rabbitmq_users:
+- user: admin
+  password: admin
+  vhost: /
+  configure_priv: .*
+  read_priv: .*
+  write_priv: .*
+  tags: administrator
+```
+
+### Remove users
+
+Set `rabbitmq_users_absent` to define an array of absent users.
+
+```yaml
+rabbitmq_users_absent:
+- guest
+```
+
 ## Plugins
 
 Set `rabbitmq_plugins` to define an array of enabled plugins.

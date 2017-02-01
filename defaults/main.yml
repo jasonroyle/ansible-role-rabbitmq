@@ -8,4 +8,12 @@ rabbitmq_plugins:
 
 rabbitmq_plugins_disabled: []
 
+rabbitmq_users:
+- user: admin
+  password: admin
+  tags: administrator
+
+rabbitmq_users_absent:
+- guest
+
 rabbitmq_version: 3.6.6-1
