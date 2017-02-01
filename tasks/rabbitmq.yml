@@ -1,5 +1,5 @@
 ---
-- include: RedHat/install.yml
-  when: ansible_os_family == "RedHat"
+- name: Include RabbitMQ installation tasks
+  include: "{{ ansible_os_family }}/install.yml"
 
 - include: plugins.yml
