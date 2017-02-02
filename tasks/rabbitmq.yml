@@ -8,6 +8,8 @@
     enabled: True
     state: started
 
+- include: vhosts.yml
+
 - include: users.yml
 
 - include: plugins.yml
