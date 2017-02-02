@@ -21,15 +21,15 @@ rabbitmq_users:
   tags: administrator
 ```
 
-| OPTION         | REQUIRED | DEFAULT |
-|----------------|----------|---------|
-| configure_priv | No       | .*      |
-| password       | Yes      |         |
-| read_priv      | No       | .*      |
-| tags           | No       |         |
-| user           | Yes      |         |
-| vhost          | No       | /       |
-| write_priv     | No       | .*      |
+| parameter      | required | default | choices | comments |
+|----------------|----------|---------|---------|----------|
+| configure_priv | no       | .*      |         |          |
+| password       | yes      |         |         |          |
+| read_priv      | no       | .*      |         |          |
+| tags           | no       |         |         |          |
+| user           | yes      |         |         |          |
+| vhost          | no       | /       |         |          |
+| write_priv     | no       | .*      |         |          |
 
 ### Remove Users
 
@@ -51,14 +51,14 @@ rabbitmq_vhosts:
 - /one
 - name: /two
   node: rabbit
-  tracing: False
+  tracing: no
 ```
 
-| OPTION  | REQUIRED | DEFAULT |
-|---------|----------|---------|
-| name    | Yes      |         |
-| node    | No       | rabbit  |
-| tracing | No       | False   |
+| parameter  | required | default | choices                          | comments |
+|------------|----------|---------|----------------------------------|----------|
+| name       | yes      |         |                                  |          |
+| node       | no       | rabbit  |                                  |          |
+| tracing    | no       | no      | <ul><li>yes</li><li>no</li></ul> |          |
 
 ### Remove Virtual Hosts
 
@@ -82,10 +82,10 @@ rabbitmq_plugins:
   url: http://www.rabbitmq.com/community-plugins/v3.6.x/rabbitmq_delayed_message_exchange-0.0.1.ez
 ```
 
-| OPTION | REQUIRED | DEFAULT | DESCRIPTION         |
-|--------|----------|---------|---------------------|
-| name   | Yes      |         |                     |
-| url    | No       |         | Installs the plugin |
+| parameter | required | default | choices | comments            |
+|-----------|----------|---------|---------|---------------------|
+| name      | yes      |         |         |                     |
+| url       | no       |         |         | Installs the plugin |
 
 ### Disable Plugins
 
