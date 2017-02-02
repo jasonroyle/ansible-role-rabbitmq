@@ -8,11 +8,14 @@
 
 - name: Disable RabbitMQ plugins
   rabbitmq_plugin:
-    names: "{{ item }}"
+    names: "{{ rabbitmq_plugins_disabled | join(',') }}"
     state: disabled
-  with_items: "{{ rabbitmq_plugins_disabled }}"
+
+- name: Append list of enabled RabbitMQ plugins
+  set_fact:
+    rabbitmq_plugins_enabled: "{{ rabbitmq_plugins_enabled + [item.name | default(item)] }}"
+  with_items: "{{ rabbitmq_plugins }}"
 
 - name: Enable RabbitMQ plugins
   rabbitmq_plugin:
-    names: "{{ item.name | default(item) }}"
-  with_items: "{{ rabbitmq_plugins }}"
+    names: "{{ rabbitmq_plugins_enabled | join(',') }}"
