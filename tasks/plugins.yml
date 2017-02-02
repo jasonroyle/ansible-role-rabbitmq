@@ -13,7 +13,7 @@
 
 - name: Append list of enabled RabbitMQ plugins
   set_fact:
-    rabbitmq_plugins_enabled: "{{ rabbitmq_plugins_enabled + [item.name | default(item)] }}"
+    rabbitmq_plugins_enabled: "{{ rabbitmq_plugins_enabled + [ item.name | default(item) ] }}"
   with_items: "{{ rabbitmq_plugins }}"
 
 - name: Enable RabbitMQ plugins
