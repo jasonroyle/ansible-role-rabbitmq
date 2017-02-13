@@ -1,0 +1,25 @@
+---
+- name: Import the Erlang RPM key
+  apt_key:
+    url: "https://packages.erlang-solutions.com/debian/erlang_solutions.asc"
+
+- name: Add the Erlang Solutions repository
+  apt_repository:
+    repo: "deb https://packages.erlang-solutions.com/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} contrib"
+
+- name: Install Erlang
+  apt:
+    name: erlang
+
+- name: Import the RabbitMQ RPM key
+  apt_key:
+    url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+
+- name: Download the RabbitMQ package
+  get_url:
+    url: "https://www.rabbitmq.com/releases/rabbitmq-server/v{{ rabbitmq_version.split('-')[0] }}/rabbitmq-server_{{ rabbitmq_version }}{% if rabbitmq_version | version_compare('3.6.6', '>=') %}{% endif %}_all.deb"
+    dest: "/usr/src/rabbitmq-server-{{ rabbitmq_version }}.deb"
+
+- name: Install RabbitMQ
+  apt:
+    deb: "/usr/src/rabbitmq-server-{{ rabbitmq_version }}.deb"
