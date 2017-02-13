@@ -1,12 +1,4 @@
 ---
-- hosts: all
-  become: yes
-
-  vars_files:
-    - ../defaults/main.yml
-    - ../vars/main.yml
-
-  tasks:
-    - include: rabbitmq.yml
-      tags:
-      - rabbitmq
+- include: rabbitmq.yml
+  tags:
+  - rabbitmq

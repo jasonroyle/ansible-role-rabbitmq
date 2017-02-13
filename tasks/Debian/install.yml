@@ -11,15 +11,6 @@
   apt:
     name: erlang
 
-- name: Add the ConVirt Dependencies repository
-  apt_repository:
-    name: convirt-dep
-    description: ConVirt Dependencies
-    baseurl: "http://www.convirture.com/repos/deps/Ubuntu/10.x"
-    gpgcheck: False
-    gpgkey: http://www.convirture.com/repos/convirture_packaging_pub_key
-  when: rabbitmq_version | version_compare('3.6.2', '>=') and ansible_distribution_major_version in ['5','6']
-
 - name: Import the RabbitMQ RPM key
   apt_key:
     url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc

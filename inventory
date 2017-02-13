@@ -1,5 +1,0 @@
-[vagrant]
-10.0.5.11
-
-[all:vars]
-iface=eth1
