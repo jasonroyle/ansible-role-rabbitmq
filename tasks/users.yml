@@ -1,11 +1,11 @@
 ---
-- name: Remove RabbitMQ users
+- name: remove rabbitmq users
   rabbitmq_user:
     user: "{{ item }}"
     state: absent
   with_items: "{{ rabbitmq_users_absent }}"
 
-- name: Add RabbitMQ users
+- name: add rabbitmq users
   rabbitmq_user:
     user: "{{ item.user }}"
     password: "{{ item.password }}"

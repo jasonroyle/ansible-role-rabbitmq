@@ -1,9 +1,9 @@
 ---
-- name: Import the Erlang RPM key
+- name: import erlang rpm key
   rpm_key:
     key: https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
 
-- name: Add the Erlang Solutions repository
+- name: add erlang solutions repository
   yum_repository:
     name: erlang-solutions
     description: "{{ ansible_distribution }} $releasever - $basearch - Erlang Solutions"
@@ -11,11 +11,11 @@
     gpgcheck: True
     gpgkey: https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
 
-- name: Install Erlang
+- name: install erlang
   yum:
     name: erlang
 
-- name: Add the ConVirt Dependencies repository
+- name: add convirt dependencies repository
   yum_repository:
     name: convirt-dep
     description: ConVirt Dependencies
@@ -24,15 +24,15 @@
     gpgkey: http://www.convirture.com/repos/convirture_packaging_pub_key
   when: rabbitmq_version | version_compare('3.6.2', '>=') and ansible_distribution_major_version in ['5','6']
 
-- name: Import the RabbitMQ RPM key
+- name: import rabbitmq rpm key
   rpm_key:
     key: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
 
-- name: Download the RabbitMQ package
+- name: download rabbitmq package
   get_url:
     url: "https://www.rabbitmq.com/releases/rabbitmq-server/v{{ rabbitmq_version.split('-')[0] }}/rabbitmq-server-{{ rabbitmq_version }}{% if rabbitmq_version | version_compare('3.6.6', '>=') %}.el{{ ansible_distribution_major_version }}{% endif %}.noarch.rpm"
     dest: "/usr/src/rabbitmq-server-{{ rabbitmq_version }}.rpm"
 
-- name: Install RabbitMQ
+- name: install rabbitmq
   yum:
     name: "/usr/src/rabbitmq-server-{{ rabbitmq_version }}.rpm"
