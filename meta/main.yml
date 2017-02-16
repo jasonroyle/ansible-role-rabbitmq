@@ -14,5 +14,6 @@ galaxy_info:
   - rabbitmq
   - amqp
   - plugin
+  - cluster
 
 dependencies: []
