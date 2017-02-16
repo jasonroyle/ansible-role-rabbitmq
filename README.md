@@ -115,7 +115,7 @@ See:
 
 - [RabbitMQ - Clustering Guide](https://www.rabbitmq.com/clustering.html)
 
-Set the `rabbitmq_cluster` to enable clustering.
+Set the `rabbitmq_cluster` variable to enable clustering.
 
 ```yaml
 rabbitmq_cluster: yes
@@ -123,7 +123,7 @@ rabbitmq_cluster: yes
 
 ### Erlang Cookie
 
-Set the `rabbitmq_erlang_cookie` to define the erlang cookie.
+Set the `rabbitmq_erlang_cookie` variable to define the Erlang cookie.
 
 ```yaml
 rabbitmq_erlang_cookie: g9avtqdzdm2p5oe9
