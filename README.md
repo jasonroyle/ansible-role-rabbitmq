@@ -2,7 +2,11 @@
 
 ## Version
 
-Set `rabbitmq_version` to define the version of RabbitMQ to install.
+See:
+
+- [RabbitMQ - Server Releases](https://www.rabbitmq.com/releases/rabbitmq-server/)
+
+Set the `rabbitmq_version` variable to define the version of RabbitMQ to install.
 
 ```yaml
 rabbitmq_version: 3.6.6-1
@@ -10,9 +14,12 @@ rabbitmq_version: 3.6.6-1
 
 ## Users
 
-See [RabbitMQ user module](http://docs.ansible.com/ansible/rabbitmq_user_module.html).
+See:
 
-Set `rabbitmq_users` to define an array of present users.
+- [Ansible - RabbitMQ User Module](http://docs.ansible.com/ansible/rabbitmq_user_module.html)
+- [RabbitMQ - Access Control](https://www.rabbitmq.com/access-control.html)
+
+Set the `rabbitmq_users` variable to define an array of present users.
 
 ```yaml
 rabbitmq_users:
@@ -22,7 +29,7 @@ rabbitmq_users:
 ```
 
 | parameter      | required | default | choices | comments |
-|----------------|----------|---------|---------|----------|
+| -------------- | -------- | ------- | ------- | -------- |
 | configure_priv | no       | .*      |         |          |
 | password       | yes      |         |         |          |
 | read_priv      | no       | .*      |         |          |
@@ -33,7 +40,7 @@ rabbitmq_users:
 
 ### Remove Users
 
-Set `rabbitmq_users_absent` to define an array of absent users.
+Set the `rabbitmq_users_absent` variable to define an array of absent users.
 
 ```yaml
 rabbitmq_users_absent:
@@ -42,9 +49,12 @@ rabbitmq_users_absent:
 
 ## Virtual Hosts
 
-See [RabbitMQ virtual host module](http://docs.ansible.com/ansible/rabbitmq_vhost_module.html).
+See:
 
-Set `rabbitmq_vhosts` to define an array of present virtual hosts.
+- [Ansible - RabbitMQ Virtual Host Module](http://docs.ansible.com/ansible/rabbitmq_vhost_module.html)
+- [RabbitMQ - Virtual Hosts](https://www.rabbitmq.com/vhosts.html)
+
+Set the `rabbitmq_vhosts` variable to define an array of present virtual hosts.
 
 ```yaml
 rabbitmq_vhosts:
@@ -55,14 +65,14 @@ rabbitmq_vhosts:
 ```
 
 | parameter  | required | default | choices                          | comments |
-|------------|----------|---------|----------------------------------|----------|
+| ---------- | -------- | ------- | -------------------------------- | -------- |
 | name       | yes      |         |                                  |          |
 | node       | no       | rabbit  |                                  |          |
 | tracing    | no       | no      | <ul><li>yes</li><li>no</li></ul> |          |
 
 ### Remove Virtual Hosts
 
-Set `rabbitmq_vhosts_absent` to define an array of absent virtual hosts.
+Set the `rabbitmq_vhosts_absent` variable to define an array of absent virtual hosts.
 
 ```yaml
 rabbitmq_vhosts_absent:
@@ -71,9 +81,12 @@ rabbitmq_vhosts_absent:
 
 ## Plugins
 
-See [RabbitMQ plugin module](http://docs.ansible.com/ansible/rabbitmq_plugin_module.html).
+See:
 
-Set `rabbitmq_plugins` to define an array of enabled plugins.
+- [Ansible - RabbitMQ Plugin Module](http://docs.ansible.com/ansible/rabbitmq_plugin_module.html)
+- [RabbitMQ - Plugins](https://www.rabbitmq.com/plugins.html)
+
+Set the `rabbitmq_plugins` variable to define an array of enabled plugins.
 
 ```yaml
 rabbitmq_plugins:
@@ -83,17 +96,48 @@ rabbitmq_plugins:
 ```
 
 | parameter | required | default | choices | comments            |
-|-----------|----------|---------|---------|---------------------|
+| --------- | -------- | ------- | ------- | ------------------- |
 | name      | yes      |         |         |                     |
 | url       | no       |         |         | Installs the plugin |
 
 ### Disable Plugins
 
-Set `rabbitmq_plugins_disabled` to disable plugins.
+Set the `rabbitmq_plugins_disabled` variable to disable plugins.
 
 ```yaml
 rabbitmq_plugins_disabled:
 - rabbitmq_management
+```
+
+## Clustering
+
+See:
+
+- [RabbitMQ - Clustering Guide](https://www.rabbitmq.com/clustering.html)
+
+Set the `rabbitmq_cluster` to enable clustering.
+
+```yaml
+rabbitmq_cluster: yes
+```
+
+### Erlang Cookie
+
+Set the `rabbitmq_erlang_cookie` to define the erlang cookie.
+
+```yaml
+rabbitmq_erlang_cookie: g9avtqdzdm2p5oe9
+```
+
+### IP Address
+
+Set the `rabbitmq_cluster_ip_address` host variable to define the private IP address of each host.
+
+```
+[queue]
+123.123.123.1 rabbitmq_cluster_ip_address=321.321.321.1
+123.123.123.2 rabbitmq_cluster_ip_address=321.321.321.2
+123.123.123.3 rabbitmq_cluster_ip_address=321.321.321.3
 ```
 
 ## License
