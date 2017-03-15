@@ -1,7 +1,7 @@
 ---
 rabbitmq_cluster: False
 
-rabbitmq_cluster_master: "rabbit@{{ hostvars[ansible_play_hosts.0]['ansible_hostname'] }}"
+rabbitmq_cluster_master: "rabbit@{{ hostvars[ansible_play_hosts.0].ansible_hostname }}"
 
 rabbitmq_erlang_cookie_file: /var/lib/rabbitmq/.erlang.cookie
 
