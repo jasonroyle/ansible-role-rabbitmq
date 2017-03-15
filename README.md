@@ -109,7 +109,23 @@ rabbitmq_plugins_disabled:
 - rabbitmq_management
 ```
 
-## Clustering
+## Configuration
+
+See:
+
+- [Pico Trading - Config Encoder Macros](https://github.com/picotrading/config-encoder-macros)
+- [RabbitMQ - Configuration File](https://www.rabbitmq.com/configure.html#configuration-file)
+
+Set the `rabbitmq_config` variable to define the configuration.
+
+```yaml
+rabbitmq_config:
+- rabbit:
+  - tcp_listeners:
+    - "'0.0.0.0'": 5671
+```
+
+## Cluster
 
 See:
 
