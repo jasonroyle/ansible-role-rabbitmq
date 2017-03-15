@@ -1,3 +1,0 @@
-[submodule "templates/config-encoder-macros"]
-	path = templates/config-encoder-macros
-	url = https://github.com/picotrading/config-encoder-macros.git
