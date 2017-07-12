@@ -1,4 +1,8 @@
 ---
+erlang_yum_repo: True
+rabbitmq_server_repo_url: https://www.rabbitmq.com/releases/rabbitmq-server
+rabbitmq_release_key_url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+
 rabbitmq_cluster: False
 
 rabbitmq_cluster_master: "rabbit@{{ hostvars[ansible_play_hosts.0].ansible_hostname }}"

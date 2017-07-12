@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: True
+  pre_tasks:
+  - name: install epel-relase
+    yum:
+      name: epel-release
+      state: present
+
+  roles:
+    - ansible_role_rabbitmq

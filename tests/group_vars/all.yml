@@ -1,0 +1,7 @@
+rabbitmq_version: 3.6.10-1
+erlang_version: 19.3-1
+
+rabbitmq_users:
+-
+  user: admin
+  password: lclpwd
