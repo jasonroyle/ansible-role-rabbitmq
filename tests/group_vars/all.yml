@@ -1,7 +1,35 @@
-rabbitmq_version: 3.6.10-1
-erlang_version: 19.3-1
+---
+erlang_yum_repo: True
+rabbitmq_server_repo_url: https://www.rabbitmq.com/releases/rabbitmq-server
+rabbitmq_release_key_url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+
+rabbitmq_cluster: False
+
+rabbitmq_cluster_master: "rabbit@{{ hostvars[ansible_play_hosts.0].ansible_hostname }}"
+
+rabbitmq_erlang_cookie_file: /var/lib/rabbitmq/.erlang.cookie
+
+rabbitmq_plugin_dir: "/usr/lib/rabbitmq/lib/rabbitmq_server-{{ rabbitmq_version.split('-').0 }}/plugins"
+
+rabbitmq_plugins:
+- rabbitmq_management
+
+rabbitmq_plugins_disabled: []
 
 rabbitmq_users:
--
-  user: admin
-  password: lclpwd
+- user: admin
+  password: admin
+  tags: administrator
+
+rabbitmq_users_absent:
+- guest
+
+rabbitmq_version: 3.6.6-1
+
+rabbitmq_vhosts: []
+
+rabbitmq_vhosts_absent: []
+
+rabbitmq_nodename: "rabbit@{{ ansible_hostname }}"
+
+rabbitmq_plugins_enabled: []

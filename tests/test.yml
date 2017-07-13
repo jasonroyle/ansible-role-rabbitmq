@@ -8,5 +8,5 @@
       state: present
     when: ansible_os_family == "RedHat"
 
-  roles:
-    - { role: ../../ansible-role-rabbitmq }
+  tasks:
+    - include: ../tasks/main.yml
