@@ -7,7 +7,6 @@ python: "2.7"
 
 # Doc: https://docs.travis-ci.com/user/customizing-the-build#Build-Matrix
 env:
-  - ANSIBLE_HOST_KEY_CHECKING=False
   - ANSIBLE_VERSION=latest
   - ANSIBLE_VERSION=2.2.2.0
   - ANSIBLE_VERSION=2.2.1.0
@@ -30,4 +29,4 @@ install:
 script:
   # Check the role/playbook's syntax.
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
-  - ansible-playbook -e 'host_key_checking=False' -i tests/inventory tests/test.yml
+  - ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i tests/inventory tests/test.yml
