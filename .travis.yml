@@ -29,4 +29,4 @@ install:
 script:
   # Check the role/playbook's syntax.
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
-  - ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i tests/inventory tests/test.yml
+  - ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -c local -i tests/inventory tests/test.yml
