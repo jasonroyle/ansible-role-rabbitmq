@@ -6,6 +6,7 @@
     yum:
       name: epel-release
       state: present
+    when: ansible_os_family == "RedHat"
 
   roles:
-    - ansible_role_rabbitmq
+    - ansible-role-rabbitmq
