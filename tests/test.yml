@@ -9,4 +9,4 @@
     when: ansible_os_family == "RedHat"
 
   roles:
-    - ansible-role-rabbitmq
+    - { role: ../../ansible-role-rabbitmq }
