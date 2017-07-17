@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: True
+  pre_tasks:
+  - name: install epel-relase
+    yum:
+      name: epel-release
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  tasks:
+    - include: ../tasks/main.yml

@@ -10,6 +10,7 @@
     baseurl: https://packages.erlang-solutions.com/rpm/centos/$releasever/$basearch
     gpgcheck: True
     gpgkey: https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+  when: erlang_yum_repo
 
 - name: install erlang
   yum:
@@ -26,11 +27,11 @@
 
 - name: import rabbitmq rpm key
   rpm_key:
-    key: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+    key: "{{ rabbitmq_release_key_url }}"
 
 - name: download rabbitmq package
   get_url:
-    url: "https://www.rabbitmq.com/releases/rabbitmq-server/v{{ rabbitmq_version.split('-')[0] }}/rabbitmq-server-{{ rabbitmq_version }}{% if rabbitmq_version | version_compare('3.6.6', '>=') %}.el{{ ansible_distribution_major_version }}{% endif %}.noarch.rpm"
+    url: "{{ rabbitmq_server_repo_url }}/v{{ rabbitmq_version.split('-')[0] }}/rabbitmq-server-{{ rabbitmq_version }}{% if rabbitmq_version | version_compare('3.6.6', '>=') %}.el{{ ansible_distribution_major_version }}{% endif %}.noarch.rpm"
     dest: "/usr/src/rabbitmq-server-{{ rabbitmq_version }}.rpm"
 
 - name: install rabbitmq
