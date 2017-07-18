@@ -25,6 +25,7 @@ rabbitmq_users_absent:
 - guest
 
 rabbitmq_version: 3.6.6-1
+erlang_version: 19.3-1.el7.centos
 
 rabbitmq_vhosts: []
 

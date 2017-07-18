@@ -2,6 +2,7 @@
 - name: import erlang rpm key
   rpm_key:
     key: https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+  when: erlang_yum_repo
 
 - name: add erlang solutions repository
   yum_repository:
@@ -11,10 +12,10 @@
     gpgcheck: True
     gpgkey: https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
   when: erlang_yum_repo
-
+  
 - name: install erlang
   yum:
-    name: erlang
+    name: "erlang-{{ erlang_version }}"
 
 - name: add convirt dependencies repository
   yum_repository:
