@@ -1,5 +1,4 @@
 ![GitHub Logo](https://travis-ci.org/misurellig/ansible-role-rabbitmq.svg?branch=master)
-Format: ![Alt Text](url)
 
 # RabbitMQ Ansible Role
 
