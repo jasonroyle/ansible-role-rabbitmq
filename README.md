@@ -127,6 +127,18 @@ rabbitmq_config:
     - "'0.0.0.0'": 5671
 ```
 
+## Environment variables
+
+See:
+  - [RabbitMQ - Environment Variables](https://www.rabbitmq.com/configure.html#define-environment-variables)
+
+Set the `rabbitmq_env_conf` variable to define the configuration.
+
+```yaml
+rabbitmq_env_conf:
+  MNESIA_BASE: /opt/mnesia
+```
+
 ## Cluster
 
 See:

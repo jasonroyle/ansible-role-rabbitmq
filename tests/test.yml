@@ -8,5 +8,5 @@
       state: present
     when: ansible_os_family == "RedHat"
 
-  tasks:
-    - include: ../tasks/main.yml
+  roles:
+    - role_under_test
