@@ -1,4 +1,4 @@
-![GitHub Logo](https://travis-ci.org/misurellig/ansible-role-rabbitmq.svg?branch=master)
+[![Build Status](https://travis-ci.org/misurellig/ansible-role-rabbitmq.svg?branch=master)](https://travis-ci.org/misurellig/ansible-role-rabbitmq)
 
 # RabbitMQ Ansible Role
 
