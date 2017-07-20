@@ -1,12 +1,12 @@
 ---
 - name: create mnesia dir
   file:
-    path: /opt/mnesia
+    path: "{{ rabbitmq_mnesia_dir }}"
     owner: rabbitmq
     group: rabbitmq
     mode: 0755
     state: directory
-    
+
 - name: configure rabbitmq env vars
   template:
     src: rabbitmq-env.conf.j2

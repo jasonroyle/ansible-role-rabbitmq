@@ -130,6 +130,7 @@ rabbitmq_config:
 ## Environment variables
 
 See:
+  - [Pico Trading - Config Encoder Macros](https://github.com/picotrading/config-encoder-macros)
   - [RabbitMQ - Environment Variables](https://www.rabbitmq.com/configure.html#define-environment-variables)
 
 Set the `rabbitmq_env_conf` variable to define the configuration.

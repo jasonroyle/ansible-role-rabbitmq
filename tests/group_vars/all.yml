@@ -41,6 +41,6 @@ rabbitmq_config:
     - "disk_free_limit": 4GB
 
 rabbitmq_env_vars: True
-
+rabbitmq_mnesia_dir: /opt/mnesia
 rabbitmq_env_conf:
-  MNESIA_BASE: /opt/mnesia
+  MNESIA_BASE: "{{ rabbitmq_mnesia_dir }}"
