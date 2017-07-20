@@ -3,7 +3,6 @@ erlang_yum_repo: True
 rabbitmq_server_repo_url: https://www.rabbitmq.com/releases/rabbitmq-server
 rabbitmq_release_key_url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
 
-rabbitmq_env_vars: []
 rabbitmq_mnesia_dir:
 rabbitmq_cluster: False
 

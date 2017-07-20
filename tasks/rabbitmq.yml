@@ -5,7 +5,7 @@
 - include: configure.yml
 
 - include: configure-env-vars.yml
-  when: rabbitmq_env_vars
+  when: rabbitmq_env_conf is defined
 
 - include: configure-cluster.yml
   when: rabbitmq_cluster
