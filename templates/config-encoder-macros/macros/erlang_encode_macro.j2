@@ -51,7 +51,11 @@
   {%- elif item is string %}
     {#- The item is a string -#}
 
-    {{ '"' ~ item ~ '"' }}
+    {%- if item[0] == ':' -%}
+      {{ item[1:] }}
+    {%- else -%}
+      {{ '"' ~ item ~ '"' }}
+    {%- endif -%}
 
   {%- else %}
     {#- The item is a list -#}
