@@ -1,4 +1,5 @@
 ---
+
 - name: add rabbitmq cluster hosts
   lineinfile:
     dest: /etc/hosts
@@ -12,3 +13,10 @@
     owner: rabbitmq
     group: rabbitmq
     mode: 0400
+  notify:
+    - rabbitmq restart
+
+
+
+- include: cluster.yml
+  when: rabbitmq_cluster and rabbitmq_nodename != rabbitmq_cluster_master

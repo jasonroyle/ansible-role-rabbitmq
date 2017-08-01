@@ -1,4 +1,5 @@
 ---
+
 - name: import erlang apt key
   apt_key:
     url: "https://packages.erlang-solutions.com/debian/erlang_solutions.asc"
