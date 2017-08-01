@@ -1,3 +1,3 @@
-{{ ansible_managed | comment('erlang') }}
+{{ ansible_managed | comment('erlang') }}---
 
 {{ rabbitmq_config | encode_erlang(convert_bools=true, convert_nums=true) }}

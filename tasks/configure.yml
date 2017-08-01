@@ -5,10 +5,21 @@
     src: rabbitmq.config.j2
     dest: /etc/rabbitmq/rabbitmq.config
   when: rabbitmq_config is defined
-  notify:
-    - rabbitmq restart
 
-- include: node_start.yml
+- name: rabbitmq full stop
+  include: node_fullstop.yml
+  when: rabbitmq_erlang_cookie is defined
+
+- name: set erlang cookie
+  template:
+    src: erlang.cookie.j2
+    dest: "{{ rabbitmq_erlang_cookie_file }}"
+    owner: rabbitmq
+    group: rabbitmq
+    mode: 0400
+  when: rabbitmq_erlang_cookie is defined
+
+- include: node_fullstart.yml
 
 - include: vhosts.yml
 

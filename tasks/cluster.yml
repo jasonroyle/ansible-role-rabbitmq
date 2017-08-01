@@ -14,7 +14,3 @@
 - name: ensure rabbitmq cluster member
   fail: msg="Unable to join the cluster."
   when: ("'already_member' not in rabbitmq_output.stderr") and rabbitmq_output.rc != 0
-
-#- name: start rabbitmq app
-#  shell: rabbitmqctl start_app
-#  when: rabbitmq_cluster and rabbitmq_nodename == rabbitmq_cluster_master
