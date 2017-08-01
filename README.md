@@ -1,5 +1,11 @@
 # RabbitMQ Ansible Role
 
+## Dependcies
+
+It depends from:
+
+- [`config_encoder_filters v1.3`](https://galaxy.ansible.com/jtyr/config_encoder_filters)
+
 ## Version
 
 See:
