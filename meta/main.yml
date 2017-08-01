@@ -14,10 +14,14 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - trusty
+    - xenial
   galaxy_tags:
   - rabbitmq
   - amqp
   - plugin
   - cluster
 
-dependencies: []
+dependencies:
+  - src: jtyr.config_encoder_filters
+    version: v1.3
+
