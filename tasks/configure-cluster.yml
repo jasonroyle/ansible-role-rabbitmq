@@ -6,6 +6,9 @@
     line: "{{ hostvars[item].rabbitmq_cluster_ip_address | default(hostvars[item].ansible_default_ipv4.address) }} {{ hostvars[item].ansible_hostname }}"
   with_items: "{{ ansible_play_hosts }}"
 
+- name: set cluster name
+  shell: "rabbitmqctl set_cluster_name {{ rabbitmq_cluster_name }}"
+
 - include: cluster.yml
   when: rabbitmq_cluster and rabbitmq_nodename != rabbitmq_cluster_master
 
