@@ -1,4 +1,5 @@
 ---
+
 - name: remove rabbitmq users
   rabbitmq_user:
     user: "{{ item }}"

@@ -1,0 +1,10 @@
+---
+
+- name: start rabbitmq server
+  service:
+    name: rabbitmq-server
+    enabled: true
+    state: started
+
+- name: start rabbitmq app
+  shell: rabbitmqctl start_app

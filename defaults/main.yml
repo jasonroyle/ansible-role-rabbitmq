@@ -1,17 +1,14 @@
 ---
+
 rabbitmq_cluster: False
-
 rabbitmq_cluster_master: "rabbit@{{ hostvars[ansible_play_hosts.0].ansible_hostname }}"
-
+rabbitmq_cluster_name: "rabbitmq-cluster"
 rabbitmq_erlang_cookie_file: /var/lib/rabbitmq/.erlang.cookie
-
 rabbitmq_plugin_dir: "/usr/lib/rabbitmq/lib/rabbitmq_server-{{ rabbitmq_version.split('-').0 }}/plugins"
-
 rabbitmq_plugins:
 - rabbitmq_management
 
 rabbitmq_plugins_disabled: []
-
 rabbitmq_users:
 - user: admin
   password: admin
@@ -20,8 +17,6 @@ rabbitmq_users:
 rabbitmq_users_absent:
 - guest
 
-rabbitmq_version: 3.6.6-1
-
+rabbitmq_version: 3.6.10-1
 rabbitmq_vhosts: []
-
 rabbitmq_vhosts_absent: []

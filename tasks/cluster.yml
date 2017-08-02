@@ -1,6 +1,10 @@
 ---
+
 - name: stop rabbitmq app
   shell: rabbitmqctl stop_app
+
+- name: reset rabbitmq
+  shell: rabbitmqctl reset
 
 - name: join rabbitmq cluster
   shell: "rabbitmqctl join_cluster {{ rabbitmq_cluster_master }}"
@@ -10,6 +14,3 @@
 - name: ensure rabbitmq cluster member
   fail: msg="Unable to join the cluster."
   when: ("'already_member' not in rabbitmq_output.stderr") and rabbitmq_output.rc != 0
-
-- name: start rabbitmq app
-  shell: rabbitmqctl start_app

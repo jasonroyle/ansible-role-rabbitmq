@@ -1,4 +1,5 @@
 ---
+
 - name: import erlang rpm key
   rpm_key:
     key: https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
