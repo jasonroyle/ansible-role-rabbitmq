@@ -1,0 +1,17 @@
+---
+
+- name: start rabbitmq server
+  service:
+    name: rabbitmq-server
+    state: started
+
+- name: stop rabbitmq app
+  shell: rabbitmqctl stop_app
+
+- name: rabbitmq app reset
+  shell: rabbitmqctl reset
+
+- name: stop rabbitmq server
+  service:
+    name: rabbitmq-server
+    state: stopped

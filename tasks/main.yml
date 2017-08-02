@@ -1,4 +1,10 @@
 ---
-- include: rabbitmq.yml
-  tags:
-  - rabbitmq
+
+- name: include rabbitmq installation tasks
+  include: "{{ ansible_os_family }}/install.yml"
+
+- include: configure.yml
+
+- include: configure-cluster.yml
+  when: rabbitmq_cluster
+
