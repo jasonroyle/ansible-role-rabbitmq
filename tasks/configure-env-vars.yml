@@ -1,0 +1,13 @@
+---
+- name: create mnesia dir
+  file:
+    path: "{{ rabbitmq_mnesia_dir }}"
+    owner: rabbitmq
+    group: rabbitmq
+    mode: 0755
+    state: directory
+
+- name: configure rabbitmq env vars
+  template:
+    src: rabbitmq-env.conf.j2
+    dest: /etc/rabbitmq/rabbitmq-env.conf

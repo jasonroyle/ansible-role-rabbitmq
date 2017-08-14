@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/misurellig/ansible-role-rabbitmq.svg?branch=master)](https://travis-ci.org/misurellig/ansible-role-rabbitmq)
+
 # RabbitMQ Ansible Role
 
 ## Version
@@ -123,6 +125,19 @@ rabbitmq_config:
 - rabbit:
   - tcp_listeners:
     - "'0.0.0.0'": 5671
+```
+
+## Environment variables
+
+See:
+  - [Pico Trading - Config Encoder Macros](https://github.com/picotrading/config-encoder-macros)
+  - [RabbitMQ - Environment Variables](https://www.rabbitmq.com/configure.html#define-environment-variables)
+
+Set the `rabbitmq_env_conf` variable to define the configuration.
+
+```yaml
+rabbitmq_env_conf:
+  MNESIA_BASE: /opt/mnesia
 ```
 
 ## Cluster

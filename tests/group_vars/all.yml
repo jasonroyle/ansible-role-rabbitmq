@@ -3,7 +3,6 @@ erlang_yum_repo: True
 rabbitmq_server_repo_url: https://www.rabbitmq.com/releases/rabbitmq-server
 rabbitmq_release_key_url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
 
-rabbitmq_mnesia_dir:
 rabbitmq_cluster: False
 
 rabbitmq_cluster_master: "rabbit@{{ hostvars[ansible_play_hosts.0].ansible_hostname }}"
@@ -31,3 +30,16 @@ erlang_version: 19.3-1.el7.centos
 rabbitmq_vhosts: []
 
 rabbitmq_vhosts_absent: []
+
+rabbitmq_nodename: "rabbit@{{ ansible_hostname }}"
+
+rabbitmq_plugins_enabled: []
+
+rabbitmq_config:
+  - rabbit:
+    - "vm_memory_high_watermark": 0.7
+    - "disk_free_limit": 4GB
+
+rabbitmq_mnesia_dir: /opt/mnesia
+rabbitmq_env_conf:
+  MNESIA_BASE: "{{ rabbitmq_mnesia_dir }}"
