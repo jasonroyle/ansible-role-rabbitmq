@@ -156,6 +156,12 @@ Set the `rabbitmq_cluster_ip_address` host variable to define the private IP add
 123.123.123.3 rabbitmq_cluster_ip_address=321.321.321.3
 ```
 
+## Testing
+
+In order to run a functional test using the role, you need to have the following things installed on your machine:
+- `python-docker`
+- be part of `docker` group
+
 ## License
 
 MIT
