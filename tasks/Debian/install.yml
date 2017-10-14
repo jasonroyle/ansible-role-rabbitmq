@@ -1,5 +1,10 @@
 ---
-- name: import erlang rpm key
+- name: ensure dependencies are present
+  apt:
+    name: apt-transport-https
+    state: installed
+
+- name: import erlang apt key
   apt_key:
     url: "https://packages.erlang-solutions.com/debian/erlang_solutions.asc"
 
@@ -11,7 +16,7 @@
   apt:
     name: erlang
 
-- name: import rabbitmq rpm key
+- name: import rabbitmq apt key
   apt_key:
     url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
 
