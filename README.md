@@ -158,9 +158,15 @@ Set the `rabbitmq_cluster_ip_address` host variable to define the private IP add
 
 ## Testing
 
-In order to run a functional test using the role, you need to have the following things installed on your machine:
-- `python-docker`
-- be part of `docker` group
+In order to test the role, we are using molecule.  Set it up as:
+```sh
+$ virtualenv2 venv                  # Only Python 2.7 is supported at the moment
+$ source venv/bin/activate          # Activate the virtualenv
+$ pip install docker-py molecule    # Install the pip dependencies
+$ molecule test                     # Run the tests
+```
+
+Note, your user needs to be a part of the `docker` group for this to work well.
 
 ## License
 
