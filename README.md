@@ -156,6 +156,20 @@ Set the `rabbitmq_cluster_ip_address` host variable to define the private IP add
 123.123.123.3 rabbitmq_cluster_ip_address=321.321.321.3
 ```
 
+## Testing
+
+In order to test the role, we are using molecule.  Set it up as:
+```sh
+$ virtualenv2 venv                  # Only Python 2.7 is supported at the moment
+$ source venv/bin/activate          # Activate the virtualenv
+$ pip install docker-py molecule    # Install the pip dependencies
+$ molecule test                     # Run the tests
+```
+
+Note, your user needs to be a part of the `docker` group for this to work well.
+
+All of the test scenarios are in the `molecule` folder.
+
 ## License
 
 MIT
