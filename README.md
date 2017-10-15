@@ -168,6 +168,8 @@ $ molecule test                     # Run the tests
 
 Note, your user needs to be a part of the `docker` group for this to work well.
 
+All of the test scenarios are in the `molecule` folder.
+
 ## License
 
 MIT
