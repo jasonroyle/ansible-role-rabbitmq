@@ -2,6 +2,7 @@
 - name: import erlang rpm key
   rpm_key:
     key: https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+  when: erlang_repo
 
 - name: add erlang solutions repository
   yum_repository:
@@ -10,6 +11,7 @@
     baseurl: https://packages.erlang-solutions.com/rpm/centos/$releasever/$basearch
     gpgcheck: True
     gpgkey: https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+  when: erlang_repo
 
 - name: install erlang
   yum:
