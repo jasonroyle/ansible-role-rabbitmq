@@ -15,10 +15,17 @@
   apt_key:
     url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
 
-- name: download rabbitmq package
+- name: download rabbitmq package from releases (for version < 3.7) 
   get_url:
     url: "https://www.rabbitmq.com/releases/rabbitmq-server/v{{ rabbitmq_version.split('-')[0] }}/rabbitmq-server_{{ rabbitmq_version }}{% if rabbitmq_version | version_compare('3.6.6', '>=') %}{% endif %}_all.deb"
     dest: "/usr/src/rabbitmq-server-{{ rabbitmq_version }}.deb"
+  when: rabbitmq_version is version_compare('3.7', '<')
+
+- name: download rabbitmq package from GitHub (for version > 3.7) 
+  get_url:
+    url: "https://github.com/rabbitmq/rabbitmq-server/releases/download/v{{ rabbitmq_version.split('-')[0] }}/rabbitmq-server_{{ rabbitmq_version }}_all.deb"
+    dest: "/usr/src/rabbitmq-server-{{ rabbitmq_version }}.deb"
+  when: rabbitmq_version is version_compare('3.7', '>=')
 
 - name: install rabbitmq
   apt:
