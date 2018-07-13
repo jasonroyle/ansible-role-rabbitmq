@@ -11,7 +11,7 @@
   service:
     name: rabbitmq-server
     enabled: True
-    state: started
+    state: restarted
 
 - include: vhosts.yml
 
